@@ -26,26 +26,32 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}  # Usamos el secreto AZURE_CREDENTIALS
 
+    # Inicia Terraform en el directorio principal (terraform/)
     - name: Terraform Init
-      run: terraform init ./terraform  # Apunta a la carpeta terraform
+      run: terraform -chdir=terraform init  # Especificamos la carpeta terraform como directorio de trabajo
 
+    # Plan de ejecución de Terraform desde el directorio principal (terraform/)
     - name: Terraform Plan
-      run: terraform plan -out=tfplan ./terraform  # Apunta a la carpeta terraform
+      run: terraform -chdir=terraform plan -out=tfplan  # Especificamos la carpeta terraform
 
+    # Aplica el plan de Terraform desde el directorio principal (terraform/)
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
+      run: terraform -chdir=terraform apply -auto-approve tfplan  # Especificamos la carpeta terraform
 
+    # Configura la clave SSH para acceder a la VM (si es necesario)
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
+    # Obtén la dirección IP de la VM creada
     - name: Get IP address of VM
       run: |
-        IP_ADDRESS=$(terraform output -raw vm_public_ip)
+        IP_ADDRESS=$(terraform -chdir=terraform output -raw vm_public_ip)  # Especificamos la carpeta terraform
         echo "IP_PUBLICA=$IP_ADDRESS" >> $GITHUB_ENV
 
+    # Ejecuta pruebas en la máquina virtual usando SSH
     - name: Run tests on VM
       run: |
         ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa adminuser@$IP_PUBLICA "comando_para_ejecutar_pruebas"
