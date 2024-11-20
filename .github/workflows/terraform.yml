@@ -24,7 +24,7 @@ jobs:
     - name: Configure Azure credentials
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}  # Referencia al secret que guardaste
+        creds: ${{ secrets.AZURE_CREDENTIALS }}  # Usamos el secreto AZURE_CREDENTIALS
 
     - name: Terraform Init
       run: terraform init
