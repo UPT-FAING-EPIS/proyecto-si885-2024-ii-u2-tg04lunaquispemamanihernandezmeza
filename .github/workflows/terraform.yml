@@ -27,10 +27,10 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}  # Usamos el secreto AZURE_CREDENTIALS
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init ./terraform  # Apunta a la carpeta terraform
 
     - name: Terraform Plan
-      run: terraform plan -out=tfplan
+      run: terraform plan -out=tfplan ./terraform  # Apunta a la carpeta terraform
 
     - name: Terraform Apply
       run: terraform apply -auto-approve tfplan
