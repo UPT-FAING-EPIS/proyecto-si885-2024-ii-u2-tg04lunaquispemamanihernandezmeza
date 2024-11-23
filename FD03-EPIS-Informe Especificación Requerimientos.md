@@ -248,7 +248,6 @@ b) Cuadro de Requerimientos No Funcionales
 #### <a name="_heading=h.3kk6ffhojp8d"></a>**2. Modelo Conceptual**
 ##### <a name="_heading=h.6bs79iy5eofy"></a>**a) Diagrama de Paquetes**
 
-![Paquetes](./media/SRS_Paquetes.png)
 ```mermaid
 %% Diagrama de paquetes para el Sistema de Salud Estudiantil
 graph TD
@@ -258,26 +257,27 @@ graph TD
     %% Sub-paquetes
     subgraph PaqueteUsuario [<<Paquete>> Usuario]
         direction TB
-        iniciarSesion[iniciarSesion()]
-        registrarUsuario[registrarUsuario()]
+        iniciarSesion["iniciarSesion()"]
+        registrarUsuario["registrarUsuario()"]
     end
 
     subgraph PaqueteReporte [<<Paquete>> Reporte]
         direction TB
-        generarReportes[generarReportes()]
-        analizarDolencias[analizarDolencias()]
+        generarReportes["generarReportes()"]
+        analizarDolencias["analizarDolencias()"]
     end
 
     subgraph PaqueteDashboard [<<Paquete>> Dashboard]
         direction TB
-        mostrarDashboard[mostrarDashboard()]
-        exportarReportes[exportarReportes()]
+        mostrarDashboard["mostrarDashboard()"]
+        exportarReportes["exportarReportes()"]
     end
 
     %% Conexiones
     SistemaSaludEstudiantil --> PaqueteUsuario
     SistemaSaludEstudiantil --> PaqueteReporte
     SistemaSaludEstudiantil --> PaqueteDashboard
+
 
 
 ```
