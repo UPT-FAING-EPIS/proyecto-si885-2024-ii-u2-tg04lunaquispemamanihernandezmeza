@@ -271,6 +271,7 @@ graph TD
     B --> D
     B --> E
 
+
 ```
 
 ##### <a name="_heading=h.nw319jao754"></a>**c) Escenarios de Caso de Uso (Narrativa)**
