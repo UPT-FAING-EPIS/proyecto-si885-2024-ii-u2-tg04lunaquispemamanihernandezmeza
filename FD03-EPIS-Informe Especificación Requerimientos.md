@@ -259,10 +259,10 @@ graph TD
     A[Usuario Estándar]
     B[Administrador]
 
-    %% Definición de los casos de uso con forma ovalada
-    C((Generar reportes gráficos interactivos))
-    D((Consultar datos históricos))
-    E((Gestión de accesos y permisos))
+    %% Definición de los casos de uso
+    C[Generar reportes gráficos interactivos]
+    D[Consultar datos históricos]
+    E[Gestión de accesos y permisos]
 
     %% Conexiones
     A --> C
@@ -270,6 +270,7 @@ graph TD
     B --> C
     B --> D
     B --> E
+
 
 
 ```
