@@ -376,10 +376,13 @@ classDiagram
 
 
 ### <a name="_heading=h.wssr9vh0wruq"></a>**CONCLUSIONES**
-El sistema propuesto es viable y permitirá a la institución tomar decisiones basadas en datos para mejorar la salud estudiantil.
+El sistema propuesto para el análisis de la prevalencia de enfermedades en el campus universitario ha sido diseñado considerando la mejora de la salud estudiantil mediante la recopilación y análisis de datos. Con la implementación de este sistema, la institución podrá monitorear y anticipar las dolencias recurrentes, lo que permitirá tomar decisiones informadas sobre intervenciones preventivas y mejorar la calidad de vida de los estudiantes. El sistema es técnicamente viable y compatible con las infraestructuras tecnológicas de la universidad. Además, la visualización de los datos mediante dashboards interactivos contribuirá a una gestión más eficiente de la salud estudiantil.
 ### <a name="_heading=h.j6clg1p7ypjy"></a>**RECOMENDACIONES**
-- Asegurar la capacitación del personal en el uso del sistema.
-- Actualizar periódicamente la base de datos para mantener la precisión de los análisis.
+1. **Capacitación del personal**: Se recomienda asegurar que los administradores y usuarios del sistema reciban una capacitación adecuada sobre el uso de las herramientas y funcionalidades del sistema. Esto garantizará un manejo efectivo de la información y una mayor precisión en las decisiones tomadas.
+
+2. **Actualización periódica de la base de datos**: Para mantener la efectividad del sistema y asegurar que los análisis sean siempre relevantes, es esencial actualizar la base de datos de manera periódica con nuevos datos de salud estudiantil. Esto contribuirá a mantener la precisión de los informes generados y a seguir las tendencias de salud en tiempo real.
+
+3. **Revisión continua de los procesos y funcionalidades**: Es recomendable realizar auditorías y revisiones periódicas del sistema para identificar posibles áreas de mejora, tanto en la usabilidad como en la funcionalidad del software, con el fin de adaptarlo a nuevos desafíos o cambios en las políticas de salud estudiantil.
 ### <a name="_heading=h.9zl75johz62"></a>**BIBLIOGRAFÍA**
 
 ### <a name="_heading=h.74ecz6xgxgib"></a>**WEBGRAFÍA**
