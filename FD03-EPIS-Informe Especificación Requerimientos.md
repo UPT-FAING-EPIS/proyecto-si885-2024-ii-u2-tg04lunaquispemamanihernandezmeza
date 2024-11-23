@@ -320,6 +320,36 @@ Objetos principales: Reportes, Dolencias, Intervenciones, Usuarios.
 
 ##### <a name="_heading=h.qdmyaveosaf4"></a>**c) Diagrama de Secuencia**
 ##### <a name="_heading=h.hf75ev23clfk"></a>**d) Diagrama de Clases**
+```mermaid
+classDiagram
+    class DatosPoliclínico {
+        +String dataFuente
+        +Date fechaActualización
+        +obtenerDatos(): void
+        +actualizarDatos(): void
+    }
+
+    class DashboardPowerBI {
+        +int idDashboard
+        +String tipo
+        +Date fechaGeneración
+        +String configuración
+        +generarDashboard(): void
+        +actualizarDashboard(): void
+    }
+
+    class TerraformAutomatización {
+        +int idAutomatización
+        +String frecuencia
+        +configurarAutomatización(): void
+        +ejecutarAutomatización(): void
+        +desplegarDashboard(): void
+    }
+
+    DatosPoliclínico --> DashboardPowerBI : "Usa los datos"
+    DashboardPowerBI --> TerraformAutomatización : "Es gestionado por"
+    TerraformAutomatización --> DashboardPowerBI : "Despliega y actualiza"
+```
 
 
 
