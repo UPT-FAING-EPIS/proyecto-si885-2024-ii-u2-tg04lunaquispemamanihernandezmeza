@@ -439,8 +439,18 @@ El sistema propuesto para el análisis de la prevalencia de enfermedades en el c
 
 3. **Revisión continua de los procesos y funcionalidades**: Es recomendable realizar auditorías y revisiones periódicas del sistema para identificar posibles áreas de mejora, tanto en la usabilidad como en la funcionalidad del software, con el fin de adaptarlo a nuevos desafíos o cambios en las políticas de salud estudiantil.
 ### <a name="_heading=h.9zl75johz62"></a>**BIBLIOGRAFÍA**
+1. Pressman, R. S. (2014). *Ingeniería de software: Un enfoque práctico*. McGraw Hill.
+2. Sommerville, I. (2015). *Software Engineering*. Pearson Education.
+3. Fowler, M. (2004). *UML Distilled: A Brief Guide to the Standard Object Modeling Language*. Addison-Wesley.
+
+---
 
 ### <a name="_heading=h.74ecz6xgxgib"></a>**WEBGRAFÍA**
+1. Universidad Privada de Tacna. *(2024).* Recuperado de [upt.edu.pe](https://www.upt.edu.pe)
+2. Microsoft Power BI Documentation. *(2024).* Recuperado de [docs.microsoft.com/powerbi](https://docs.microsoft.com/powerbi)
+3. PlantUML. *(2024).* Recuperado de [plantuml.com](https://plantuml.com)
+4. Terraform Documentation. *(2024).* Recuperado de [terraform.io](https://www.terraform.io/docs)
+
 
 
 
