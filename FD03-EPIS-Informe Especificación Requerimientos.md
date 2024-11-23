@@ -319,6 +319,23 @@ Objetos principales: Reportes, Dolencias, Intervenciones, Usuarios.
 
 
 ##### <a name="_heading=h.qdmyaveosaf4"></a>**c) Diagrama de Secuencia**
+```mermaid
+sequenceDiagram
+    actor Policlínico
+    participant DatosPoliclínico
+    participant DashboardPowerBI
+    participant TerraformAutomatización
+
+    Policlínico->>DatosPoliclínico: obtenerDatos()
+    DatosPoliclínico->>DatosPoliclínico: obtenerDatos()
+    DatosPoliclínico->>DashboardPowerBI: generarDashboard()
+    DashboardPowerBI->>DashboardPowerBI: generarDashboard()
+    DashboardPowerBI->>TerraformAutomatización: configurarAutomatización()
+    TerraformAutomatización->>TerraformAutomatización: configurarAutomatización()
+    TerraformAutomatización->>TerraformAutomatización: ejecutarAutomatización()
+    TerraformAutomatización->>TerraformAutomatización: desplegarDashboard()
+```
+
 ##### <a name="_heading=h.hf75ev23clfk"></a>**d) Diagrama de Clases**
 ```mermaid
 classDiagram
