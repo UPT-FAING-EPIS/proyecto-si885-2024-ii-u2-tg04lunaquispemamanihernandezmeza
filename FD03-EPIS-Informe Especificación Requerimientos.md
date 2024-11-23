@@ -254,16 +254,15 @@ b) Cuadro de Requerimientos No Funcionales
 
 ![Actividades](./media/SRS_CasosU.png)
 ```mermaid
-
 graph TD
     %% Definición de los actores
     A[Usuario Estándar]
     B[Administrador]
 
-    %% Definición de los casos de uso
-    C[Generar reportes gráficos interactivos]
-    D[Consultar datos históricos]
-    E[Gestión de accesos y permisos]
+    %% Definición de los casos de uso con forma ovalada
+    C((Generar reportes gráficos interactivos))
+    D((Consultar datos históricos))
+    E((Gestión de accesos y permisos))
 
     %% Conexiones
     A --> C
@@ -271,6 +270,7 @@ graph TD
     B --> C
     B --> D
     B --> E
+
 ```
 
 ##### <a name="_heading=h.nw319jao754"></a>**c) Escenarios de Caso de Uso (Narrativa)**
