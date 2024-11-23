@@ -253,6 +253,25 @@ b) Cuadro de Requerimientos No Funcionales
 ##### <a name="_heading=h.ljt4ul7a8e6b"></a>**b) Diagrama de Casos de Uso**
 
 ![Actividades](./media/SRS_CasosU.png)
+```mermaid
+
+graph TD
+    %% Definición de los actores
+    A[Usuario Estándar]
+    B[Administrador]
+
+    %% Definición de los casos de uso
+    C[Generar reportes gráficos interactivos]
+    D[Consultar datos históricos]
+    E[Gestión de accesos y permisos]
+
+    %% Conexiones
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+    B --> E
+```
 
 ##### <a name="_heading=h.nw319jao754"></a>**c) Escenarios de Caso de Uso (Narrativa)**
 ### <a name="_heading=h.ygtvk49a4scx"></a>1. Análisis Comparativo
