@@ -249,9 +249,6 @@ b) Cuadro de Requerimientos No Funcionales
 ##### <a name="_heading=h.6bs79iy5eofy"></a>**a) Diagrama de Paquetes**
 
 ![Paquetes](./media/SRS_Paquetes.png)
-
-##### <a name="_heading=h.ljt4ul7a8e6b"></a>**b) Diagrama de Casos de Uso**
-
 ```mermaid
 graph TD
     %% Paquete principal
@@ -283,7 +280,8 @@ graph TD
 
 ```
 
-![Actividades](./media/SRS_CasosU.png)
+##### <a name="_heading=h.ljt4ul7a8e6b"></a>**b) Diagrama de Casos de Uso**
+
 ```mermaid
 graph TD
     %% Definición de los actores
