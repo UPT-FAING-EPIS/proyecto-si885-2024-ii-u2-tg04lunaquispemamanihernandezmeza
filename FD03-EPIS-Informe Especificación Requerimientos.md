@@ -252,6 +252,35 @@ b) Cuadro de Requerimientos No Funcionales
 
 ##### <a name="_heading=h.ljt4ul7a8e6b"></a>**b) Diagrama de Casos de Uso**
 
+%% Diagrama de paquetes para el Sistema de Salud Estudiantil
+```mermaid
+
+graph TD
+    %% Paquete principal
+    SistemaSaludEstudiantil[["<<Sistema>>\nSistemaSaludEstudiantil"]]
+
+    %% Sub-paquetes
+    subgraph PaqueteUsuario [<<Paquete>> Usuario]
+        iniciarSesion["+ iniciarSesion()"]
+        registrarUsuario["+ registrarUsuario()"]
+    end
+
+    subgraph PaqueteReporte [<<Paquete>> Reporte]
+        generarReportes["+ generarReportes()"]
+        analizarDolencias["+ analizarDolencias()"]
+    end
+
+    subgraph PaqueteDashboard [<<Paquete>> Dashboard]
+        mostrarDashboard["+ mostrarDashboard()"]
+        exportarReportes["+ exportarReportes()"]
+    end
+
+    %% Conexiones
+    SistemaSaludEstudiantil --> PaqueteUsuario
+    SistemaSaludEstudiantil --> PaqueteReporte
+    SistemaSaludEstudiantil --> PaqueteDashboard
+```
+
 ![Actividades](./media/SRS_CasosU.png)
 ```mermaid
 graph TD
