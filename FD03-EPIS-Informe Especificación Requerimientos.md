@@ -182,10 +182,13 @@ Ser una institución educativa líder en innovación y salud estudiantil, promov
 #### <a name="_heading=h.ab9li4zgekik"></a>**3. Misión**
 Brindar servicios educativos y de salud integrales que impacten positivamente en el bienestar físico y mental de nuestros estudiantes.
 #### <a name="_heading=h.888c8zk4684v"></a>**4. Organigrama**
-- Rectoría
-- Facultad de Ingeniería
-- Departamento de Bienestar Estudiantil
-- Unidad de Análisis de Datos de Salud
+```mermaid
+graph TD
+    A[Rectoría] --> B[Facultad de Ingeniería]
+    B --> C[Departamento de Bienestar Estudiantil]
+    C --> D[Unidad de Análisis de Datos de Salud]
+```
+
 ### <a name="_heading=h.apkgfbttu2ek"></a>**II. Visionamiento de la Empresa**
 #### <a name="_heading=h.rt4zbzy4w6a4"></a>**1. Descripción del Problema**
 La prevalencia de enfermedades y dolencias entre los estudiantes afecta su rendimiento académico y calidad de vida. Actualmente, no existe un sistema que facilite el análisis y la prevención de estas condiciones.
