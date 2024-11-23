@@ -245,7 +245,11 @@ b) Cuadro de Requerimientos No Funcionales
 #### <a name="_heading=h.3kk6ffhojp8d"></a>**2. Modelo Conceptual**
 ##### <a name="_heading=h.6bs79iy5eofy"></a>**a) Diagrama de Paquetes**
 
+![Paquetes](./media/SRS_Paquetes.png)
+
 ##### <a name="_heading=h.ljt4ul7a8e6b"></a>**b) Diagrama de Casos de Uso**
+
+![Actividades](./media/SRS_CasosU.png)
 
 ##### <a name="_heading=h.nw319jao754"></a>**c) Escenarios de Caso de Uso (Narrativa)**
 ### <a name="_heading=h.ygtvk49a4scx"></a>1. Análisis Comparativo
@@ -317,6 +321,7 @@ Garantiza un seguimiento eficiente de las estrategias preventivas y contribuye a
 Objetos principales: Reportes, Dolencias, Intervenciones, Usuarios.
 ##### <a name="_heading=h.wrz94z8zgrhs"></a>**b) Diagrama de Actividades con Objetos**
 
+![Actividades](./media/SRS_Actividades.png)
 
 ##### <a name="_heading=h.qdmyaveosaf4"></a>**c) Diagrama de Secuencia**
 ```mermaid
