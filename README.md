@@ -1,44 +1,33 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=15560313)
-# proyecto-formatos-01
-# Despliegue de infraestructura en Azure con Terraform
+# Terraform para Configurar Cosmos DB en Azure
 
-Este proyecto configura los siguientes recursos en Azure utilizando Terraform:
+Este repositorio utiliza **Terraform** para crear y gestionar una infraestructura en **Microsoft Azure** que incluye los siguientes recursos:
 
-- **Grupo de recursos** llamado `topicos_grupo_MAJEC_rg`.
-- **Red virtual** llamada `topicos_grupo_MAJEC_vnet` con un espacio de direcciones `10.0.0.0/16`.
-- **Subred** llamada `topicos_grupo_MAJEC_subnet` con el prefijo de direcciones `10.0.1.0/24`.
-- **Interfaz de red** llamada `topicos_grupo_MAJEC_nic`.
-- **Máquina virtual Linux** llamada `topicos_grupo_MAJEC_vm`, configurada con Ubuntu Server 18.04-LTS y autenticación SSH.
+- **Grupo de Recursos**: Agrupa todos los recursos de Azure relacionados.
+- **Cuenta de Cosmos DB**: Crea una cuenta de Cosmos DB con almacenamiento analítico habilitado.
+- **Base de Datos SQL en Cosmos DB**: Configura una base de datos SQL dentro de la cuenta de Cosmos DB.
+- **Contenedor SQL en Cosmos DB**: Crea un contenedor SQL con clave de partición y rendimiento configurado.
+- **Asignación de Roles**: Asigna permisos de acceso a un principal (usuario o aplicación) para realizar operaciones CRUD en Cosmos DB.
 
-## Información de la máquina virtual
+## Variables de Configuración
 
-Se ha creado una máquina virtual en Azure con los siguientes detalles:
-
-| **Nombre de la VM**        | **Grupo de recursos**     | **Ubicación** | **Tamaño**        | **Disco del sistema operativo**  | **Dirección IP pública** |
-|----------------------------|---------------------------|---------------|-------------------|---------------------------------|--------------------------|
-| topicos_grupo_MAJEC_vm      | topicos_grupo_MAJEC_rg    | East US       | Standard_B1ls     | /subscriptions/.../osdisk       | 20.45.10.10              |
+- **location**: Ubicación de los recursos (por ejemplo, "East US").
+- **resource_group_name**: Nombre del grupo de recursos.
+- **cosmosdb_account_name**: Nombre de la cuenta de Cosmos DB.
+- **cosmosdb_database_name**: Nombre de la base de datos en Cosmos DB.
+- **cosmosdb_container_name**: Nombre del contenedor en Cosmos DB.
+- **partition_key_path**: Ruta de la clave de partición.
+- **throughput**: Rendimiento del contenedor de Cosmos DB (por ejemplo, 400).
 
 ## Requisitos
 
-- Terraform
-- Cuenta de Azure con los permisos adecuados
-- Clave SSH pública en la ruta `C:/Users/PC/.ssh/id_rsa.pub`
+- **Terraform**: Para ejecutar estos scripts.
+- **Cuenta de Azure**: Con permisos adecuados para crear recursos.
 
-## Pasos
+## Cómo Ejecutar
 
-1. Clona este repositorio.
-2. Define tus variables de Azure en el archivo `terraform.tfvars`.
-3. Inicializa Terraform:
-    ```bash
-    terraform init
-    ```
-4. Verifica el plan de ejecución:
-    ```bash
-    terraform plan
-    ```
-5. Aplica el plan para crear los recursos:
-    ```bash
-    terraform apply
-    ```
-Los recursos se crearán en el grupo de recursos de Azure en la región **East US**.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu_usuario/tu_repositorio.git
+   cd tu_repositorio
+
 
