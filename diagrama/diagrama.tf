@@ -1,96 +1,67 @@
-# Azure Cosmos DB Account
-resource "azurerm_cosmosdb_account" "cosmosdbaccount1" {
-  name                      = var.cosmosdb_account_name
-  location                  = var.cosmosdb_account_location
-  resource_group_name       = var.resource_group_name
-  offer_type                = "Standard"
-  kind                      = "GlobalDocumentDB"
+resources:
+  - name: "Resource Group"
+    type: "azure.ResourceGroup"
+    location: "East US"
+    properties:
+      name: "${var.resource_group_name}"
 
-  consistency_policy {
-    consistency_level       = "BoundedStaleness"
-    max_interval_in_seconds = 300
-    max_staleness_prefix    = 100000
-  }
+  - name: "Cosmos DB Account"
+    type: "azure.CosmosDBAccount"
+    location: "East US"
+    properties:
+      name: "${var.cosmosdb_account_name}"
+      offer_type: "Standard"
+      kind: "GlobalDocumentDB"
+      consistency_policy:
+        consistency_level: "Session"
+      geo_location:
+        location: "East US"
+        failover_priority: 0
+      enable_analytical_storage: true
 
-  geo_location {
-    location          = var.location
-    failover_priority = 0
-  }
-}
+  - name: "Cosmos DB SQL Database"
+    type: "azure.CosmosDBSqlDatabase"
+    properties:
+      name: "${var.cosmosdb_database_name}"
+      account_name: "${var.cosmosdb_account_name}"
 
-# Cosmos DB SQL Database
-resource "azurerm_cosmosdb_sql_database" "cosmossqldb1" {
-  name                = var.cosmosdb_sqldb_name
-  resource_group_name = var.resource_group_name
-  account_name        = var.cosmosdb_account_name
-  autoscale_settings {
-    max_throughput = var.max_throughput
-  }
-}
+  - name: "Cosmos DB SQL Container"
+    type: "azure.CosmosDBSqlContainer"
+    properties:
+      name: "${var.cosmosdb_container_name}"
+      database_name: "${var.cosmosdb_database_name}"
+      partition_key_paths:
+        - "${var.partition_key_path}"
+      throughput: "${var.throughput}"
 
-# Cosmos DB SQL Container
-resource "azurerm_cosmosdb_sql_container" "sqlcontainer1" {
-  name                  = var.sql_container_name
-  resource_group_name   = var.resource_group_name
-  account_name          = var.cosmosdb_account_name
-  database_name         = var.cosmosdb_sqldb_name
-  partition_key_path    = "/definition/id"
-  partition_key_version = 1
-  autoscale_settings {
-    max_throughput = var.max_throughput
-  }
+  - name: "Role Assignment for Cosmos DB"
+    type: "azure.RoleAssignment"
+    properties:
+      principal_id: "${var.principal_id}"
+      role_definition_name: "Cosmos DB Account Reader Role"
+      scope: "${var.cosmosdb_account_name}"
 
-  indexing_policy {
-    indexing_mode = "consistent"
-    included_path {
-      path = "/*"
-    }
-    included_path {
-      path = "/included/?"
-    }
-    excluded_path {
-      path = "/excluded/?"
-    }
-  }
+  - name: "App Service Plan"
+    type: "azure.AppServicePlan"
+    properties:
+      name: "example-service-plan"
+      location: "East US"
+      sku:
+        tier: "Standard"
+        size: "S1"
 
-  unique_key {
-    paths = ["/definition/idlong", "/definition/idshort"]
-  }
-}
+  - name: "Web App (App Service)"
+    type: "azure.AppService"
+    properties:
+      name: "example-flask-app"
+      location: "East US"
+      app_service_plan_id: "${azure.AppServicePlan.example.id}"
+      app_settings:
+        COSMOS_DB_URL: "${azure.CosmosDBAccount.example.document_endpoint}"
+        COSMOS_DB_KEY: "${azure.CosmosDBAccount.example.primary_master_key}"
+        COSMOS_DB_DATABASE: "${azure.CosmosDBSqlDatabase.example.name}"
+        COSMOS_DB_CONTAINER: "${azure.CosmosDBSqlContainer.example.name}"
+      site_config:
+        linux_fx_version: "PYTHON|3.9"
 
-# Storage Account (Blob Storage)
-resource "azurerm_storage_account" "blobstorage1" {
-  name                     = "safa1dev"
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
 
-# Azure Service Plan
-resource "azurerm_service_plan" "asp1" {
-  name                = "asp-fa-tech-com-dev"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  os_type             = "Windows"
-  sku_name            = "Y1"
-}
-
-# Windows Function App
-resource "azurerm_windows_function_app" "functionapp1" {
-  name                       = var.function_app_name
-  location                   = var.location
-  resource_group_name        = var.resource_group_name
-  service_plan_id            = azurerm_service_plan.asp1.id
-  storage_account_name       = azurerm_storage_account.blobstorage1.name
-  storage_account_access_key = azurerm_storage_account.blobstorage1.primary_access_key
-
-  site_config {
-    # Configuración del sitio
-  }
-
-  app_settings = {
-    "Google_URL"               = "www.google.com"
-    "Cosmos_Connection_String" = var.cosmosdb_connectionstring
-  }
-}
