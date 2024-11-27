@@ -299,7 +299,6 @@ Este diagrama representa las interacciones entre los actores (usuarios y sistema
 1. <a name="_heading=h.1ksv4uv"></a>Vista Lógica
 ###
 1. ### <a name="_heading=h.44sinio"></a><a name="_heading=h.2jxsxqh"></a>Diagrama de Subsistemas (paquetes)
-![]
 ![diagrama2](images/diagrama02.png)
 
 
