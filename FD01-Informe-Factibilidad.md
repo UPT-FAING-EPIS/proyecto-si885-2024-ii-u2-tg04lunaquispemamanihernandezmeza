@@ -89,10 +89,8 @@ Evaluar la salud y el acceso a los servicios de la Universidad Privada de Tacna,
 - *Cantidad de estudiantes que asistieron a tópicos por facultades en los años 2018, 2019, 2022 y 2023.
 - *Calcular el promedio de dolencias entre publico masculino o femenino.
 - *Calcular el promedio de dolencias previo inicio del semestre académico para preveer prevalencias de estas.
-- *Analizar de tendencias de Salud.
 - *Evaluar el promedio de enfermedades segun el Año.
-- *Determinar el promedio de estudiantes matriculados en el segundo semestre de los años 2018, 2019, 2022 y 2023.
-- *Calcular el promedio de estudiantes matriculados en el primer semestre de los años 2018, 2019, 2022 y 2023.
+- *Determinar el promedio de estudiantes matriculados en el primer y segundo semestre de los años 2018, 2019, 2022 y 2023.
 
 ---
 
